@@ -81,22 +81,32 @@ class _HomeScreenState extends State<HomeScreen> {
         body: SingleChildScrollView(
           child: Padding(
             padding:
-              const EdgeInsets.only(top: 20.0, right: 20.0, left: 20.0),
+              const EdgeInsets.only(top: 20.0, right: 5.0, left: 5.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Top Trends", style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.w800,
+                Padding(
+                  padding: EdgeInsets.only(left: 15.0),
+                  child: Text("Top Trends", style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.w800,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 SizedBox(
                   height: 20.0,
                 ),
-                listItem(img_Full_Body_Training,  "Full Body Program", 53, 30),
-                listItem(img_Yoga_Training,  "Yoga Training", 25, 45),
+                FlatButton(
+                  onPressed: null,
+                  child: listItem(img_Full_Body_Training, "Full Body Training", 30, 60),
+                ),
+                FlatButton(
+                  onPressed: null,
+                  child: listItem(img_Yoga_Training, "Yoga Training", 30, 60),
+                ),
               ],
             )
           )
@@ -105,4 +115,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-

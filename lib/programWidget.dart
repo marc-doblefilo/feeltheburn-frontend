@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget listItem(String background, String title, int exercises, int time){
+Widget listItem(String background, String title, int days, int time){
   return Container(
     width: double.infinity,
     margin: EdgeInsets.only(bottom: 10.0),
@@ -30,7 +30,7 @@ Widget listItem(String background, String title, int exercises, int time){
                 height: 6.0,
               ),
               Text(
-                "$exercises Exercises",
+                "$days Days to complete",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18.0,
@@ -41,7 +41,7 @@ Widget listItem(String background, String title, int exercises, int time){
                 height: 4.0,
               ),
               Text(
-                "$time Minutes",
+                "$time Minutes per day",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18.0,
