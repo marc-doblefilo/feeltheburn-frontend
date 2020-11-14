@@ -35,7 +35,6 @@ Widget mainDrawer(BuildContext context) {
             tileColor: BackgroundColor,
             selectedTileColor: SelectedButtonBackgroundColor,
             onTap: () {
-              Navigator.pop(context);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => CreateExerciseScreen()),
