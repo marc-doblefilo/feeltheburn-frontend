@@ -1,20 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:feeltheburn/util/constants.dart';
-import 'package:feeltheburn/database.dart';
+import 'package:feeltheburn/util/colors.dart';
 
-class CreateExerciseScreen extends StatefulWidget {
-  @override
-  _CreateExerciseScreenState createState() => _CreateExerciseScreenState();
-}
-
-class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
-  final nameField = TextField(
-    obscureText: false,
-    decoration: InputDecoration(
-      hintText: "Name for the exercise",
-    ),
-  );
-
+class MainAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
