@@ -1,7 +1,4 @@
-import 'package:feeltheburn/programs_list.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:feeltheburn/constants.dart';
 
 void main() => runApp(MyApp());
 
@@ -100,7 +97,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 20.0,
                 ),
                 FlatButton(
-                  onPressed: null,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CreateExerciseScreen()),
+                    );
+                  },
                   child: listItem(img_Full_Body_Training, "Full Body Training", 30, 60),
                 ),
                 FlatButton(

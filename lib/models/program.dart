@@ -4,12 +4,12 @@ class Program {
   String name;
   List<Serie> exercises;
   int difficulty;
-  int time;
+  List<String> muscularGroup;
 
-  Program(String name, List<Serie> exercises, int difficulty, int time) {
+  Program(String name, List<Serie> exercises, int difficulty, int time, List<String> muscularGroup) {
     this.name = name;
     this.exercises = exercises;
     this.difficulty = difficulty;
-    this.time = time;
+    this.muscularGroup = muscularGroup;
   }
 }
