@@ -11,6 +11,6 @@ Widget mainAppBar(String title) {
         ),
       ),
       centerTitle: true,
-      backgroundColor: cHeaderColor,
+      backgroundColor: HeaderColor,
   );
 }

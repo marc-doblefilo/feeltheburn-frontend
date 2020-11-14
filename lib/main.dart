@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:feeltheburn/util/colors.dart';
 import 'package:feeltheburn/util/constants.dart';
 import 'package:feeltheburn/programWidget.dart';
-import 'package:feeltheburn/ui/pages/create-exercise.page.dart';
+import 'package:feeltheburn/ui/widget/main-drawer.widget.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
       title: 'Feel The Burn',
       theme: ThemeData(
         fontFamily: "Cairo",
-        scaffoldBackgroundColor: cBackgroundColor,
-        textTheme: Theme.of(context).textTheme.apply(displayColor: cTextColor),
+        scaffoldBackgroundColor: BackgroundColor,
+        textTheme: Theme.of(context).textTheme.apply(displayColor: TextColor),
       ),
       home: HomeScreen(),
     );
@@ -31,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: mainDrawer(context),
       body: NestedScrollView(
 
         headerSliverBuilder: (context, innerBoxIsScrolled) {
@@ -44,12 +45,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(color: Colors.white),
               ),
               centerTitle: true,
-              backgroundColor: cHeaderColor,
+              backgroundColor: HeaderColor,
               toolbarHeight: 100.0,
-              leading: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.menu),
-              ),
               bottom: PreferredSize(
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 24.0, left: 12.0, right: 12.0),
@@ -90,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Padding(
                   padding: EdgeInsets.only(left: 15.0),
                   child: Text("Top Trends", style: TextStyle(
-                      color: cTextColor,
+                      color: TextColor,
                       fontSize: 24.0,
                       fontWeight: FontWeight.w800,
                     ),
@@ -101,12 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 20.0,
                 ),
                 FlatButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => CreateExerciseScreen()),
-                    );
-                  },
+                  onPressed: () {},
                   child: listItem(img_Full_Body_Training, "Full Body Training", 30, 60),
                 ),
                 FlatButton(
