@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:feeltheburn/util/colors.dart';
+import 'package:feeltheburn/util/constants.dart';
+import 'package:feeltheburn/programWidget.dart';
+import 'package:feeltheburn/ui/pages/create-exercise.page.dart';
 
 void main() => runApp(MyApp());
 
@@ -86,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Padding(
                   padding: EdgeInsets.only(left: 15.0),
                   child: Text("Top Trends", style: TextStyle(
-                      color: Colors.black,
+                      color: cTextColor,
                       fontSize: 24.0,
                       fontWeight: FontWeight.w800,
                     ),

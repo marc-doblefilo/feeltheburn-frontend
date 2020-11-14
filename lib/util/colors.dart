@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-const cBackgroundColor = Color(0xFFF8F8F8);
+const cBackgroundColor = Color(0x1B2737);
 const cActiveIconColor = Color(0xFFE68342);
-const cTextColor = Color(0xFF222B45);
+const cTextColor = Color(0xFFFFFFFF);
 const cBlueLightColor = Color(0xFFC7B8F5);
-const cHeaderColor = Color.fromRGBO(238, 20, 20, 1);
+const cHeaderColor = Color(0x151E29);
 const cShadowColor = Color(0xFFE6E6E6);
