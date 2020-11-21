@@ -1,3 +1,4 @@
+import 'package:feeltheburn/ui/widget/settings-drawer.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:feeltheburn/util/colors.dart';
 import 'package:feeltheburn/util/constants.dart';
@@ -35,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: mainDrawer(context, database),
+      endDrawer: settingsDrawer(context, database),
       body: NestedScrollView(
 
         headerSliverBuilder: (context, innerBoxIsScrolled) {
@@ -70,11 +72,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 preferredSize: Size.fromHeight(100.0),
               ),
-              actions: [
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.settings),
-                ),
+              actions: <Widget>[
+                Builder(
+                  builder: (context){
+                    return IconButton(
+                      icon: Icon(Icons.settings),
+                      onPressed: () {
+                        Scaffold.of(context).openEndDrawer();
+                      },
+                    );
+                  },
+                )
               ],
             ),
           ];
