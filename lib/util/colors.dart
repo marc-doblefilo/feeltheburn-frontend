@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 // HEADERS & BACKGROUNDS
 const HeaderColor = Color.fromRGBO(43, 53, 149, 1);
-const BackgroundColor = Color.fromRGBO(24, 41, 82, 1);
+const BackgroundColor = Color.fromRGBO(22, 29, 38, 1);
 
 // BUTTONS
 const SelectedButtonBackgroundColor = Color.fromRGBO(129, 43, 83, 1);
@@ -14,3 +14,7 @@ const TextColor = Color(0xFFFFFFFF);
 
 // COLORS
 const white = Colors.white;
+
+// DARK MODE SWITCH
+const darkModeBackgroundColor = Color.fromRGBO(22, 29, 38, 1);
+const lightModeBackgroundColor = Colors.white;
