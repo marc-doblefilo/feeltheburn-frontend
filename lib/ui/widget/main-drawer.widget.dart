@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:feeltheburn/util/colors.dart';
 import 'package:flutter/rendering.dart';
 import 'package:feeltheburn/ui/pages/create-exercise.page.dart';
+import 'package:feeltheburn/database.dart';
 
-Widget mainDrawer(BuildContext context) {
+Widget mainDrawer(BuildContext context, Database database) {
   return Theme(
     data: Theme.of(context).copyWith(
       canvasColor: BackgroundColor,
@@ -37,7 +38,7 @@ Widget mainDrawer(BuildContext context) {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => CreateExerciseScreen()),
+                MaterialPageRoute(builder: (context) => CreateExerciseScreen(database)),
               );
             },
           ),
