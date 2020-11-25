@@ -2,13 +2,10 @@ import 'package:feeltheburn/ui/widget/multi-select-chip.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:feeltheburn/ui/widget/app-bar.widget.dart';
 import 'package:feeltheburn/util/colors.dart';
-import 'package:feeltheburn/database.dart';
+import 'package:feeltheburn/services/exercise_services.dart';
+
 
 class CreateExerciseScreen extends StatefulWidget {
-  final Database db;
-
-  CreateExerciseScreen(this.db);
-
   @override
   _CreateExerciseScreenState createState() => _CreateExerciseScreenState();
 }
@@ -73,6 +70,27 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
     ),
   );
 
+  final descriptionField = TextField(
+    obscureText: false,
+    decoration: InputDecoration(
+      contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+      hintText: "Make a short description",
+      hintStyle: TextStyle(
+        fontSize: 10.0,
+        color: TextColor,
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: white),
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
+    ),
+    style: TextStyle(
+      fontSize: 10.0,
+      color: TextColor,
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     final muscularGroupsField = RaisedButton(
@@ -121,8 +139,8 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
           child: Padding(
             padding: const EdgeInsets.all(36.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 SizedBox(height: 45.0),
                 nameField,
@@ -130,6 +148,15 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
                 muscularGroupsField,
                 SizedBox(height: 10.0),
                 levelField,
+                SizedBox(height: 10.0),
+                descriptionField,
+                SizedBox(height: 10.0),
+                RaisedButton(
+                  child: Text("Save"),
+                  onPressed: () {
+                    uploadExercise("Hello", ["Hola", "Hola"], "Medium", "Hello Good Morning");
+                  },
+                ),
               ],
             ),
           ),

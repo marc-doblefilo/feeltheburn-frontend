@@ -4,7 +4,6 @@ import 'package:feeltheburn/util/colors.dart';
 import 'package:feeltheburn/util/constants.dart';
 import 'package:feeltheburn/programWidget.dart';
 import 'package:feeltheburn/ui/widget/main-drawer.widget.dart';
-import 'package:feeltheburn/database.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,13 +29,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  Database database;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: mainDrawer(context, database),
-      endDrawer: settingsDrawer(context, database),
+      drawer: mainDrawer(context),
+      endDrawer: settingsDrawer(context),
       body: NestedScrollView(
 
         headerSliverBuilder: (context, innerBoxIsScrolled) {
