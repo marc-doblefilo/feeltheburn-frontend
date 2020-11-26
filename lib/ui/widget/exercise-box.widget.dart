@@ -3,14 +3,7 @@ import 'package:feeltheburn/util/colors.dart';
 import 'package:feeltheburn/models/exercise.dart';
 
 Widget exerciseContainer(Exercise exercise){
-
-  var concatenate = StringBuffer();
-  exercise.muscularGroup.forEach((item){
-    concatenate.write("|$item| ");
-  });
-  String muscularGroupsString = concatenate.toString();
-
-  return Container(
+    return Container(
     width: double.infinity,
     margin: EdgeInsets.only(bottom: 10.0),
     decoration: BoxDecoration(
@@ -35,7 +28,7 @@ Widget exerciseContainer(Exercise exercise){
             height: 6.0,
           ),
           Text(
-            muscularGroupsString,
+            exercise.muscularGroup.join(", "),
             style: TextStyle(
               color: Colors.white,
               fontSize: 18.0,

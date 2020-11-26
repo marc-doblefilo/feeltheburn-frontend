@@ -4,7 +4,6 @@ import 'package:feeltheburn/ui/widget/app-bar.widget.dart';
 import 'package:feeltheburn/util/colors.dart';
 import 'package:feeltheburn/services/exercise.services.dart';
 
-
 class CreateExerciseScreen extends StatefulWidget {
   @override
   _CreateExerciseScreenState createState() => _CreateExerciseScreenState();
@@ -29,9 +28,9 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
     "Lumbar",
     "Obliques"
   ];
-  final List<String> selectedMuscularGroups = [];
+  List<String> selectedMuscularGroups = [];
 
-  String difficulty = "Easy";
+  String selectedDifficulty = "Easy";
 
   _showReportDialog() {
     showDialog(
@@ -40,7 +39,12 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
           //Here we will build the content of the dialog
           return AlertDialog(
             title: Text("Select Muscular Groups"),
-            content: MultiSelectChip(muscularGroups),
+            content: MultiSelectChip(muscularGroups,
+                onSelectionChanged: (selectedList) {
+              setState(() {
+                selectedMuscularGroups = selectedList;
+              });
+            }),
             actions: <Widget>[
               FlatButton(
                 child: Text("Select"),
@@ -53,7 +57,7 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
 
   final _nameController = TextEditingController();
   final _descriptionController = TextEditingController();
-  bool _validateName = false;
+  bool _validateNameEmpty = false;
 
   @override
   void dispose() {
@@ -70,7 +74,7 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
       decoration: InputDecoration(
         contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         labelText: "Enter the Name for the exercise",
-        errorText: _validateName ? "Exercise MUST have a name" : null,
+        errorText: _validateNameEmpty ? "Exercise MUST have a name" : null,
         labelStyle: TextStyle(
           fontSize: 16.0,
           color: TextColor,
@@ -88,11 +92,12 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
     );
 
     final descriptionField = TextField(
+      controller: _descriptionController,
       obscureText: false,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        hintText: "Make a short description (optional)",
-        hintStyle: TextStyle(
+        labelText: "Enter a short description (optional)",
+        labelStyle: TextStyle(
           fontSize: 10.0,
           color: TextColor,
         ),
@@ -108,20 +113,31 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
       ),
     );
 
-    final muscularGroupsField = RaisedButton(
-      child: Text(
-        "Select Muscular Groups",
-        style: TextStyle(
-          fontSize: 16.0,
-          color: TextColor,
+    final muscularGroupsField = Column(
+      children: <Widget>[
+        RaisedButton(
+          child: Text(
+            "Select Muscular Groups",
+            style: TextStyle(
+              fontSize: 16.0,
+              color: TextColor,
+            ),
+          ),
+          color: ButtonBackgroundColor,
+          onPressed: () => _showReportDialog(),
         ),
-      ),
-      color: ButtonBackgroundColor,
-      onPressed: () => _showReportDialog(),
+        Text(
+          "Selected: " + selectedMuscularGroups.join(", "),
+          style: TextStyle(
+            fontSize: 14.0,
+            color: TextColor,
+          ),
+        ),
+      ],
     );
 
     final levelField = DropdownButton(
-      value: difficulty,
+      value: selectedDifficulty,
       style: TextStyle(
         color: TextColor,
         fontSize: 14.0,
@@ -135,10 +151,11 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
       dropdownColor: ButtonBackgroundColor,
       onChanged: (String newValue) {
         setState(() {
-          difficulty = newValue;
+          selectedDifficulty = newValue;
         });
       },
-      items: <String>['Easy', 'Medium', 'Hard'].map<DropdownMenuItem<String>>((String value) {
+      items: <String>['Easy', 'Medium', 'Hard']
+          .map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
           child: Text(value),
@@ -153,28 +170,38 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
           color: BackgroundColor,
           child: Padding(
             padding: const EdgeInsets.all(36.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                SizedBox(height: 45.0),
-                nameField,
-                SizedBox(height: 10.0),
-                muscularGroupsField,
-                SizedBox(height: 10.0),
-                levelField,
-                SizedBox(height: 10.0),
-                descriptionField,
-                SizedBox(height: 10.0),
-                RaisedButton(
-                  child: Text("Save"),
-                  onPressed: () {
-                    setState(() {
-                      _nameController.text.isEmpty ? _validateName = true : _validateName = false;
-                    });
-                  },
-                ),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  SizedBox(height: 45.0),
+                  nameField,
+                  SizedBox(height: 10.0),
+                  muscularGroupsField,
+                  SizedBox(height: 10.0),
+                  levelField,
+                  SizedBox(height: 10.0),
+                  descriptionField,
+                  SizedBox(height: 10.0),
+                  RaisedButton(
+                    child: Text("Save"),
+                    onPressed: () {
+                      setState(() {
+                        _nameController.text.isEmpty
+                            ? _validateNameEmpty = true
+                            : _validateNameEmpty = false;
+                        if(_validateNameEmpty != true) {
+                          print(_nameController.text);
+                          print(selectedDifficulty);
+                          print(selectedMuscularGroups.join("; "));
+                          print(_descriptionController.text);
+                        }
+                      });
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),
