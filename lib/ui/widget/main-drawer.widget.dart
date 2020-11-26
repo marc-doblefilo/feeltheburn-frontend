@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:feeltheburn/util/colors.dart';
 import 'package:flutter/rendering.dart';
 import 'package:feeltheburn/ui/pages/create-exercise.page.dart';
+import 'package:feeltheburn/ui/pages/list-exercises.page.dart';
 
 Widget mainDrawer(BuildContext context) {
   return Theme(
@@ -38,6 +39,22 @@ Widget mainDrawer(BuildContext context) {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => CreateExerciseScreen()),
+              );
+            },
+          ),
+          ListTile(
+            title: Text(
+              "Exercises",
+              style: TextStyle(
+                color: TextColor,
+              ),
+            ),
+            tileColor: BackgroundColor,
+            selectedTileColor: SelectedButtonBackgroundColor,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ListExercisesScreen()),
               );
             },
           ),

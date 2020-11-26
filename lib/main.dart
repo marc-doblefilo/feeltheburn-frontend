@@ -1,8 +1,6 @@
 import 'package:feeltheburn/ui/widget/settings-drawer.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:feeltheburn/util/colors.dart';
-import 'package:feeltheburn/util/constants.dart';
-import 'package:feeltheburn/programWidget.dart';
 import 'package:feeltheburn/ui/widget/main-drawer.widget.dart';
 
 void main() => runApp(MyApp());
@@ -105,14 +103,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 SizedBox(
                   height: 20.0,
-                ),
-                FlatButton(
-                  onPressed: () {},
-                  child: listItem(img_Full_Body_Training, "Full Body Training", 30, 60),
-                ),
-                FlatButton(
-                  onPressed: null,
-                  child: listItem(img_Yoga_Training, "Yoga Training", 30, 60),
                 ),
               ],
             )

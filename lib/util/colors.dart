@@ -15,6 +15,6 @@ const TextColor = Color(0xFFFFFFFF);
 // COLORS
 const white = Colors.white;
 
-// DARK MODE SWITCH
-const darkModeBackgroundColor = Color.fromRGBO(22, 29, 38, 1);
-const lightModeBackgroundColor = Colors.white;
+// DIFFICULTIES
+
+const EasyBoxColor = Color.fromRGBO(0, 171, 8, 1);
