@@ -2,7 +2,7 @@ import 'package:feeltheburn/ui/widget/multi-select-chip.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:feeltheburn/ui/widget/app-bar.widget.dart';
 import 'package:feeltheburn/util/colors.dart';
-import 'package:feeltheburn/services/exercise_services.dart';
+import 'package:feeltheburn/services/exercise-services.dart';
 
 
 class CreateExerciseScreen extends StatefulWidget {
@@ -154,7 +154,7 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
                 RaisedButton(
                   child: Text("Save"),
                   onPressed: () {
-                    uploadExercise("Hello", ["Hola", "Hola"], "Medium", "Hello Good Morning");
+                    loadExercise();
                   },
                 ),
               ],

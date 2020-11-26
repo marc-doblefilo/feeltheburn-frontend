@@ -4,37 +4,29 @@ class Exercise{
   String difficulty;
   String description;
 
-  Exercise({
+  Exercise(
     this.name,
     this.muscularGroup,
     this.difficulty,
     this.description
-  });
+  );
 
-  factory Exercise.fromJson(Map<String, dynamic> parsedJson){
+  factory Exercise.fromJson(dynamic json){
     return Exercise(
-        name: parsedJson['name'],
-        muscularGroup: parsedJson['muscularGroup'].cast<String>(),
-        difficulty: parsedJson ['difficulty'],
-        description: parsedJson ['description']
+        json['name'] as String,
+        json['muscularGroup'] as List<String>,
+        json['difficulty'] as String,
+        json['description'] as String,
     );
   }
 
-  Map<String, dynamic> toJson() {
-    return <String, dynamic> {
-      "name": name,
-      "muscularGroup": muscularGroup,
-      "difficulty": difficulty,
-      "description": description,
-    };
-  }
-
-  factory Exercise.loadExercise(String newName, List<String> newMuscularGroups, String newDifficulty, String newDescription) {
+  factory Exercise.setExercise(String newName, List<String> newMuscularGroup, String newDifficulty, String newDescription) {
     return Exercise(
-    name: newName,
-    muscularGroup: newMuscularGroups,
-    difficulty: newDifficulty,
-    description: newDescription
+      newName,
+      newMuscularGroup,
+      newDifficulty,
+      newDescription
     );
   }
+
 }

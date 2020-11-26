@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:feeltheburn/util/colors.dart';
 import 'package:flutter/rendering.dart';
-import 'package:feeltheburn/ui/widget/dark-mode.widget.dart';
 
 Widget settingsDrawer(BuildContext context) {
   return Theme(
@@ -35,11 +34,6 @@ Widget settingsDrawer(BuildContext context) {
             tileColor: BackgroundColor,
             selectedTileColor: SelectedButtonBackgroundColor,
             onTap: () {},
-          ),
-          Container(
-            height: 50,
-            padding: EdgeInsets.fromLTRB(150.0, 0, 10.0, 0),
-            child: darkModeButton(),
           ),
         ],
       ),

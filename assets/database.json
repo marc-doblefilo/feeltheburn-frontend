@@ -1,9 +1,22 @@
 {
-  "name": "Pull ups",
-  "muscularGroup": [
-    "Back",
-    "Biceps"
-  ],
-  "difficulty": "Medium",
-  "description": "In a bar with prone grip pull yourself up"
+  "exercises": [
+    {
+      "name": "Push up",
+      "muscularGroup": [
+        "Triceps",
+        "Chest"
+      ],
+      "difficulty": "Easy",
+      "description": "A normal push up"
+    },
+    {
+      "name": "Pull up",
+      "muscularGroup": [
+        "Back",
+        "Biceps"
+      ],
+      "difficulty": "Medium",
+      "description": "A normal pull up"
+    }
+  ]
 }
