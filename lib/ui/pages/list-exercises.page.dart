@@ -18,25 +18,31 @@ class _ListExercisesScreenState extends State<ListExercisesScreen> {
     return Scaffold(
       appBar: mainAppBar("Exercises"),
       body: Center(
-        child: Container(
-          color: BackgroundColor,
-          child: FutureBuilder(
-              future: loadExercises(),
-              builder: (BuildContext context, AsyncSnapshot snapshot) {
-                switch (snapshot.connectionState) {
-                  case ConnectionState.none:
-                    return Center(child: Text("Not Working"),);
-                  case ConnectionState.waiting:
-                    return Center(child: Text("Waiting"),);
-                  default:
-                    return ListView.builder(
-                      itemCount: snapshot.data.length,
-                      itemBuilder: (BuildContext context, int index){
-                        return exerciseContainer(snapshot.data[index]);
-                      },
-                    );
-                }
-              }
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 0),
+          child: Container(
+            color: BackgroundColor,
+            child: FutureBuilder(
+                future: loadExercises(),
+                builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  switch (snapshot.connectionState) {
+                    case ConnectionState.none:
+                      return Center(
+                        child: Text("Not Working"),
+                      );
+                    case ConnectionState.waiting:
+                      return Center(
+                        child: Text("Waiting"),
+                      );
+                    default:
+                      return ListView.builder(
+                        itemCount: snapshot.data.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return exerciseContainer(snapshot.data[index]);
+                        },
+                      );
+                  }
+                }),
           ),
         ),
       ),

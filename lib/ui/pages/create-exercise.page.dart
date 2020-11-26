@@ -29,6 +29,8 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
     "Lumbar",
     "Obliques"
   ];
+  final List<String> selectedMuscularGroups = [];
+
   String difficulty = "Easy";
 
   _showReportDialog() {
@@ -49,50 +51,63 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
         });
   }
 
-  final nameField = TextField(
-    obscureText: false,
-    decoration: InputDecoration(
-      contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-      hintText: "Name for the exercise",
-      hintStyle: TextStyle(
-        fontSize: 16.0,
-        color: TextColor,
-      ),
-      enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: white),
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
-    ),
-    style: TextStyle(
-      fontSize: 16.0,
-      color: TextColor,
-    ),
-  );
+  final _nameController = TextEditingController();
+  final _descriptionController = TextEditingController();
+  bool _validateName = false;
 
-  final descriptionField = TextField(
-    obscureText: false,
-    decoration: InputDecoration(
-      contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-      hintText: "Make a short description",
-      hintStyle: TextStyle(
-        fontSize: 10.0,
-        color: TextColor,
-      ),
-      enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: white),
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
-    ),
-    style: TextStyle(
-      fontSize: 10.0,
-      color: TextColor,
-    ),
-  );
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _descriptionController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    final nameField = TextField(
+      controller: _nameController,
+      obscureText: false,
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+        labelText: "Enter the Name for the exercise",
+        errorText: _validateName ? "Exercise MUST have a name" : null,
+        labelStyle: TextStyle(
+          fontSize: 16.0,
+          color: TextColor,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: white),
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
+      ),
+      style: TextStyle(
+        fontSize: 16.0,
+        color: TextColor,
+      ),
+    );
+
+    final descriptionField = TextField(
+      obscureText: false,
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+        hintText: "Make a short description (optional)",
+        hintStyle: TextStyle(
+          fontSize: 10.0,
+          color: TextColor,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: white),
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
+      ),
+      style: TextStyle(
+        fontSize: 10.0,
+        color: TextColor,
+      ),
+    );
+
     final muscularGroupsField = RaisedButton(
       child: Text(
         "Select Muscular Groups",
@@ -154,7 +169,9 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
                 RaisedButton(
                   child: Text("Save"),
                   onPressed: () {
-                    loadExercises();
+                    setState(() {
+                      _nameController.text.isEmpty ? _validateName = true : _validateName = false;
+                    });
                   },
                 ),
               ],

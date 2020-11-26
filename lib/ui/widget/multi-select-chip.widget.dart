@@ -10,7 +10,7 @@ class MultiSelectChip extends StatefulWidget {
 }
 
 class _MultiSelectChipState extends State<MultiSelectChip> {
-  String selectedChoice = "";
+  List<String> selectedChoices = List();
 
   _buildChoiceList() {
     List<Widget> choices = List();
@@ -20,13 +20,15 @@ class _MultiSelectChipState extends State<MultiSelectChip> {
         padding: const EdgeInsets.all(2.0),
         child: ChoiceChip(
           label: Text(item),
-          selected: selectedChoice == item,
+          selected: selectedChoices.contains(item),
           onSelected: (selected) {
             setState(() {
-              selectedChoice = item;
+              selectedChoices.contains(item)
+                  ? selectedChoices.remove(item)
+                  : selectedChoices.add(item);
             });
           },
-        )
+        ),
       ));
     });
 

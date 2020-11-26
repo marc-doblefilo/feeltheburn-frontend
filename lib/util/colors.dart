@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 // HEADERS & BACKGROUNDS
-const HeaderColor = Color.fromRGBO(43, 53, 149, 1);
-const BackgroundColor = Color.fromRGBO(22, 29, 38, 1);
+const HeaderColor = Color.fromRGBO(1, 41, 95, 1);
+const BackgroundColor = Color.fromRGBO(39, 39, 39, 1);
 
 // BUTTONS
 const SelectedButtonBackgroundColor = Color.fromRGBO(129, 43, 83, 1);
@@ -10,11 +10,12 @@ const ButtonBackgroundColor = Color.fromRGBO(149, 53, 93, 1);
 const UnderlineButtonColor = Color.fromRGBO(112, 69, 175, 1);
 
 // TEXTS
-const TextColor = Color(0xFFFFFFFF);
+const TextColor = Color.fromRGBO(238, 238, 238, 1);
 
 // COLORS
 const white = Colors.white;
 
 // DIFFICULTIES
 
-const EasyBoxColor = Color.fromRGBO(0, 171, 8, 1);
+const EasyBoxColor = Color.fromRGBO(21, 127, 31, 1);
+const MediumBoxColor = Color.fromRGBO(224, 142, 69, 1);

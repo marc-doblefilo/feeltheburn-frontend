@@ -6,7 +6,7 @@ Widget exerciseContainer(Exercise exercise){
 
   var concatenate = StringBuffer();
   exercise.muscularGroup.forEach((item){
-    concatenate.write("-$item- ");
+    concatenate.write("|$item| ");
   });
   String muscularGroupsString = concatenate.toString();
 
@@ -14,7 +14,7 @@ Widget exerciseContainer(Exercise exercise){
     width: double.infinity,
     margin: EdgeInsets.only(bottom: 10.0),
     decoration: BoxDecoration(
-      color: (exercise.difficulty == "Easy") ? EasyBoxColor : Colors.black,
+      color: (exercise.difficulty == "Easy") ? EasyBoxColor : (exercise.difficulty == "Medium") ? MediumBoxColor : Colors.black,
       borderRadius: BorderRadius.circular(10.0),
     ),
     child:Padding(
