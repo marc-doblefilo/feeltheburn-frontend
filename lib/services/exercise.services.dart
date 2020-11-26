@@ -9,7 +9,7 @@ Future<String> _loadExerciseDatabase() async {
 
 Future<List<Exercise>> loadExercises() async {
   String data = await _loadExerciseDatabase();
-  final jsonData = json.decode(data)['exercises'] as List;
+  final jsonData = jsonDecode(data)['exercises'] as List;
   List<Exercise> exercises = jsonData.map((tagJson) => Exercise.fromJson(tagJson)).toList();
   print("[DB] Loaded succesfully");
   return exercises;

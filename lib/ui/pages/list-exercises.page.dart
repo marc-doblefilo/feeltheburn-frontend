@@ -1,10 +1,13 @@
 import 'package:feeltheburn/ui/widget/app-bar.widget.dart';
 import 'package:feeltheburn/util/colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:feeltheburn/ui/widget/exercise-box.widget.dart';
 import 'package:feeltheburn/services/exercise.services.dart';
 
 class ListExercisesScreen extends StatefulWidget {
+  ListExercisesScreen({Key key}) : super(key: key);
+
   @override
   _ListExercisesScreenState createState() => _ListExercisesScreenState();
 }
@@ -18,23 +21,17 @@ class _ListExercisesScreenState extends State<ListExercisesScreen> {
         child: Container(
           color: BackgroundColor,
           child: FutureBuilder(
-            future: loadExercises(),
-            builder: (context, snapshot) {
-              if (snapshot.data == null) {
-                return Container(
-                  child: Center(child: Text("Loading...")),
-                );
-              } else {
-                return ListView.builder(
-                  itemCount: snapshot.data.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return ListTile(
-                      title: Text(snapshot.data[index].name),
-                    );
-                  },
-                );
+              future: loadExercises(),
+              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                switch (snapshot.connectionState) {
+                  case ConnectionState.none:
+                    return Center(child: Text("Not Working"),);
+                  case ConnectionState.waiting:
+                    return Center(child: Text("Waiting"),);
+                  default:
+                    return Center(child: Text(snapshot.data[0].name),);
+                }
               }
-            },
           ),
         ),
       ),
