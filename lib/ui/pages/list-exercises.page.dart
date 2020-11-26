@@ -29,7 +29,12 @@ class _ListExercisesScreenState extends State<ListExercisesScreen> {
                   case ConnectionState.waiting:
                     return Center(child: Text("Waiting"),);
                   default:
-                    return Center(child: Text(snapshot.data[0].name),);
+                    return ListView.builder(
+                      itemCount: snapshot.data.length,
+                      itemBuilder: (BuildContext context, int index){
+                        return exerciseContainer(snapshot.data[index]);
+                      },
+                    );
                 }
               }
           ),
