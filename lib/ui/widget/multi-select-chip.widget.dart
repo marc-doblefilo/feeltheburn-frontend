@@ -1,3 +1,4 @@
+import 'package:feeltheburn/util/colors.dart';
 import 'package:flutter/material.dart';
 
 class MultiSelectChip extends StatefulWidget {
@@ -20,8 +21,15 @@ class _MultiSelectChipState extends State<MultiSelectChip> {
       choices.add(Container(
         padding: const EdgeInsets.all(2.0),
         child: ChoiceChip(
-          label: Text(item),
+          label: Text(
+            item,
+            style: TextStyle(
+              fontStyle: FontStyle.italic,
+            ),
+          ),
           selected: selectedChoices.contains(item),
+          backgroundColor: white,
+          selectedColor: SelectedButtonBackgroundColor,
           onSelected: (selected) {
             setState(() {
               selectedChoices.contains(item)

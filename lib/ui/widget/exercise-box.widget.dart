@@ -7,7 +7,7 @@ Widget exerciseContainer(Exercise exercise){
     width: double.infinity,
     margin: EdgeInsets.only(bottom: 10.0),
     decoration: BoxDecoration(
-      color: (exercise.difficulty == "Easy") ? EasyBoxColor : (exercise.difficulty == "Medium") ? MediumBoxColor : Colors.black,
+      color: (exercise.difficulty == "Easy") ? EasyBoxColor : (exercise.difficulty == "Medium") ? MediumBoxColor : HardBoxColor,
       borderRadius: BorderRadius.circular(10.0),
     ),
     child:Padding(

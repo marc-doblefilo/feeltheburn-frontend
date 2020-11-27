@@ -18,4 +18,5 @@ const white = Colors.white;
 // DIFFICULTIES
 
 const EasyBoxColor = Color.fromRGBO(21, 127, 31, 1);
-const MediumBoxColor = Color.fromRGBO(224, 142, 69, 1);
+const MediumBoxColor = Color.fromRGBO(242, 175, 41, 1);
+const HardBoxColor = Color.fromRGBO(227, 23, 10, 0.8);

@@ -38,7 +38,11 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
         builder: (BuildContext context) {
           //Here we will build the content of the dialog
           return AlertDialog(
-            title: Text("Select Muscular Groups"),
+            backgroundColor: BackgroundColor,
+            title: Text("Select Muscular Groups",
+            style: TextStyle(
+              color: TextColor,
+            ),),
             content: MultiSelectChip(muscularGroups,
                 onSelectionChanged: (selectedList) {
               setState(() {
@@ -192,10 +196,7 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
                             ? _validateNameEmpty = true
                             : _validateNameEmpty = false;
                         if(_validateNameEmpty != true) {
-                          print(_nameController.text);
-                          print(selectedDifficulty);
-                          print(selectedMuscularGroups.join("; "));
-                          print(_descriptionController.text);
+                          print("[Ex] Working");
                         }
                       });
                     },

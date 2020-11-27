@@ -1,7 +1,6 @@
 {
   "exercises": [
     {
-      "index": 0,
       "name": "Push up",
       "muscularGroup": [
         "Triceps",
@@ -11,7 +10,6 @@
       "description": "A normal push up"
     },
     {
-      "index": 1,
       "name": "Pull up",
       "muscularGroup": [
         "Back",
@@ -19,6 +17,44 @@
       ],
       "difficulty": "Medium",
       "description": "A normal pull up"
+    },
+    {
+      "name": "Dragon Flag",
+      "muscularGroup": [
+        "Core",
+        "Lumbar",
+        "Obliques"
+      ],
+      "difficulty": "Hard",
+      "description": "Hard day"
+    },
+    {
+      "name": "Push up",
+      "muscularGroup": [
+        "Triceps",
+        "Chest"
+      ],
+      "difficulty": "Easy",
+      "description": "A normal push up"
+    },
+    {
+      "name": "Pull up",
+      "muscularGroup": [
+        "Back",
+        "Biceps"
+      ],
+      "difficulty": "Medium",
+      "description": "A normal pull up"
+    },
+    {
+      "name": "Dragon Flag",
+      "muscularGroup": [
+        "Core",
+        "Lumbar",
+        "Obliques"
+      ],
+      "difficulty": "Hard",
+      "description": "Hard day"
     }
   ]
 }
