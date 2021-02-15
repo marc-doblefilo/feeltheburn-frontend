@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:feeltheburn/ui/widget/app-bar.widget.dart';
 import 'package:feeltheburn/util/colors.dart';
 import 'package:feeltheburn/services/exercise.services.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CreateExerciseScreen extends StatefulWidget {
   @override
@@ -197,6 +198,8 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
                             : _validateNameEmpty = false;
                         if(_validateNameEmpty != true) {
                           print("[Ex] Working");
+                          Map <String,dynamic> data = {"name":_nameController.text,"muscularGroups":selectedMuscularGroups,"difficulty":selectedDifficulty,"description":_descriptionController.text};
+                          FirebaseFirestore.instance.collection("exercises").add(data);
                         }
                       });
                     },

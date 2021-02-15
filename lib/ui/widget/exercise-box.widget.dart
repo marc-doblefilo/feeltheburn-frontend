@@ -29,7 +29,7 @@ Widget exerciseContainer(BuildContext context, DocumentSnapshot document){
             height: 6.0,
           ),
           Text(
-            document['muscularGroup'].join(","),
+            document['muscularGroups'].join(", "),
             style: TextStyle(
               color: Colors.white,
               fontSize: 18.0,
