@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "960161460480",
+    "project_id": "feeltheburn-f7f9f",
+    "storage_bucket": "feeltheburn-f7f9f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:960161460480:android:bc1533f7c64a7580d683e5",
+        "android_client_info": {
+          "package_name": "com.example.feeltheburn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "960161460480-rnvonndeahn36j09uod6ch227n9gog5t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI4eTGbnnSa2Rr2p3kuprWECFwiKivHh4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "960161460480-rnvonndeahn36j09uod6ch227n9gog5t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "960161460480-0q8qo8gjg16rc2mjl497ohvmie1fl5hd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutter.firebase.feeltheburn"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

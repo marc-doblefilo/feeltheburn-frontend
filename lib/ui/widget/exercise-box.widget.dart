@@ -1,13 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:feeltheburn/util/colors.dart';
 import 'package:feeltheburn/models/exercise.dart';
 
-Widget exerciseContainer(Exercise exercise){
+Widget exerciseContainer(BuildContext context, DocumentSnapshot document){
     return Container(
     width: double.infinity,
     margin: EdgeInsets.only(bottom: 10.0),
     decoration: BoxDecoration(
-      color: (exercise.difficulty == "Easy") ? EasyBoxColor : (exercise.difficulty == "Medium") ? MediumBoxColor : HardBoxColor,
+      color: (document['difficulty'] == "Easy") ? EasyBoxColor : (document['difficulty'] == "Medium") ? MediumBoxColor : HardBoxColor,
       borderRadius: BorderRadius.circular(10.0),
     ),
     child:Padding(
@@ -17,7 +18,7 @@ Widget exerciseContainer(Exercise exercise){
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            exercise.name,
+            document['name'],
             style: TextStyle(
               color: Colors.white,
               fontSize: 24.0,
@@ -28,7 +29,7 @@ Widget exerciseContainer(Exercise exercise){
             height: 6.0,
           ),
           Text(
-            exercise.muscularGroup.join(", "),
+            document['muscularGroup'].join(","),
             style: TextStyle(
               color: Colors.white,
               fontSize: 18.0,
@@ -39,7 +40,7 @@ Widget exerciseContainer(Exercise exercise){
             height: 4.0,
           ),
           Text(
-            exercise.description,
+            document['description'],
             style: TextStyle(
               color: Colors.white,
               fontSize: 18.0,

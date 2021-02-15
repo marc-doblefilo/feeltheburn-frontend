@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:feeltheburn/ui/widget/exercise-box.widget.dart';
 import 'package:feeltheburn/services/exercise.services.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class ListExercisesScreen extends StatefulWidget {
   ListExercisesScreen({Key key}) : super(key: key);
@@ -13,6 +15,8 @@ class ListExercisesScreen extends StatefulWidget {
 }
 
 class _ListExercisesScreenState extends State<ListExercisesScreen> {
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,8 +26,8 @@ class _ListExercisesScreenState extends State<ListExercisesScreen> {
           padding: EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 0),
           child: Container(
             color: BackgroundColor,
-            child: FutureBuilder(
-                future: loadExercises(),
+            child: StreamBuilder(
+                stream: FirebaseFirestore.instance.collection('exercises').snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   switch (snapshot.connectionState) {
                     case ConnectionState.none:
@@ -36,9 +40,9 @@ class _ListExercisesScreenState extends State<ListExercisesScreen> {
                       );
                     default:
                       return ListView.builder(
-                        itemCount: snapshot.data.length,
+                        itemCount: snapshot.data.docs.length,
                         itemBuilder: (BuildContext context, int index) {
-                          return exerciseContainer(snapshot.data[index]);
+                          return exerciseContainer(context, snapshot.data.docs[index]);
                         },
                       );
                   }
