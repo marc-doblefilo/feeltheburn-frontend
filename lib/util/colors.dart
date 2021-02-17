@@ -5,7 +5,7 @@ const HeaderColor = Color.fromRGBO(1, 41, 95, 1);
 const BackgroundColor = Color.fromRGBO(39, 39, 39, 1);
 
 // BUTTONS
-const SelectedButtonBackgroundColor = Color.fromRGBO(129, 43, 83, 1);
+const SelectedButtonBackgroundColor = Color.fromRGBO(1, 41, 95, 1);
 const ButtonBackgroundColor = Color.fromRGBO(149, 53, 93, 1);
 const UnderlineButtonColor = Color.fromRGBO(112, 69, 175, 1);
 
@@ -17,6 +17,6 @@ const white = Colors.white;
 
 // DIFFICULTIES
 
-const EasyBoxColor = Color.fromRGBO(21, 127, 31, 1);
-const MediumBoxColor = Color.fromRGBO(242, 175, 41, 1);
-const HardBoxColor = Color.fromRGBO(227, 23, 10, 0.8);
+const EasyBoxColor = Color.fromRGBO(35, 136, 35, 1);
+const MediumBoxColor = Color.fromRGBO(255, 191, 0, 1);
+const HardBoxColor = Color.fromRGBO(210, 34, 43, 0.8);

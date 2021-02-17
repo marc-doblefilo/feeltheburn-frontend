@@ -30,6 +30,9 @@ class _MultiSelectChipState extends State<MultiSelectChip> {
           selected: selectedChoices.contains(item),
           backgroundColor: white,
           selectedColor: SelectedButtonBackgroundColor,
+          selectedShadowColor: Colors.white,
+          elevation: 6.0,
+          pressElevation: 12.0,
           onSelected: (selected) {
             setState(() {
               selectedChoices.contains(item)

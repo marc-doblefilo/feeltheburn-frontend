@@ -15,8 +15,6 @@ class ListExercisesScreen extends StatefulWidget {
 }
 
 class _ListExercisesScreenState extends State<ListExercisesScreen> {
-  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

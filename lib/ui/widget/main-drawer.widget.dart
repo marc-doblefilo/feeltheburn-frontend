@@ -14,6 +14,8 @@ Widget mainDrawer(BuildContext context) {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
+            margin: EdgeInsets.zero,
+            padding: EdgeInsets.zero,
             child: Text(
               "Welcome to Feel The Burn",
               style: TextStyle(
@@ -31,6 +33,7 @@ Widget mainDrawer(BuildContext context) {
               "Create an Exercise",
               style: TextStyle(
                 color: TextColor,
+                fontSize: 18.0,
               ),
             ),
             tileColor: BackgroundColor,
@@ -47,6 +50,7 @@ Widget mainDrawer(BuildContext context) {
               "Exercises",
               style: TextStyle(
                 color: TextColor,
+                fontSize: 18.0,
               ),
             ),
             tileColor: BackgroundColor,
@@ -57,6 +61,15 @@ Widget mainDrawer(BuildContext context) {
                 MaterialPageRoute(builder: (context) => ListExercisesScreen()),
               );
             },
+          ),
+          ListTile(
+            title: Text('v0.0.1',
+              style: TextStyle(
+                color: TextColor,
+                fontSize: 10.0,
+              ),
+            ),
+            onTap: () {},
           ),
         ],
       ),

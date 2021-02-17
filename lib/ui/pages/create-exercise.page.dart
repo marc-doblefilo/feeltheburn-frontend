@@ -78,7 +78,6 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
       obscureText: false,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        labelText: "Enter the Name for the exercise",
         errorText: _validateNameEmpty ? "Exercise MUST have a name" : null,
         labelStyle: TextStyle(
           fontSize: 16.0,
@@ -147,13 +146,13 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
         color: TextColor,
         fontSize: 14.0,
       ),
-      icon: Icon(Icons.arrow_downward),
-      iconEnabledColor: SelectedButtonBackgroundColor,
+      icon: Icon(Icons.arrow_drop_down_rounded),
+      iconEnabledColor: Colors.white,
       underline: Container(
         height: 2,
         color: UnderlineButtonColor,
       ),
-      dropdownColor: ButtonBackgroundColor,
+      dropdownColor: Color.fromRGBO(39, 39, 39, 0.9),
       onChanged: (String newValue) {
         setState(() {
           selectedDifficulty = newValue;
@@ -174,13 +173,20 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
         child: Container(
           color: BackgroundColor,
           child: Padding(
-            padding: const EdgeInsets.all(36.0),
+            padding: const EdgeInsets.fromLTRB(20.0, 0.0, 40.0, 0.0),
             child: SingleChildScrollView(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  SizedBox(height: 45.0),
+                  Text('Name for the new exercise: ',
+                    style: TextStyle(
+                      color: TextColor,
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  SizedBox(height: 5.0),
                   nameField,
                   SizedBox(height: 10.0),
                   muscularGroupsField,
@@ -200,6 +206,27 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
                           print("[Ex] Working");
                           Map <String,dynamic> data = {"name":_nameController.text,"muscularGroups":selectedMuscularGroups,"difficulty":selectedDifficulty,"description":_descriptionController.text};
                           FirebaseFirestore.instance.collection("exercises").add(data);
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return Dialog(
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+                                elevation: 16,
+                                child: Container(
+                                  height: 100.0,
+                                  width: 50.0,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                    Text(_nameController.text + ' was saved in DB!',
+                                    ),
+                                    ],
+                                ),
+                                ),
+                              );
+                            },
+                          );
                         }
                       });
                     },
