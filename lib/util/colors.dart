@@ -5,7 +5,7 @@ const HeaderColor = Color.fromRGBO(255, 45, 8, 1);
 const BackgroundColor = Color.fromRGBO(39, 39, 39, 1);
 
 // BUTTONS
-const SelectedButtonBackgroundColor = Color.fromRGBO(1, 41, 95, 1);
+const SelectedButtonBackgroundColor = Color.fromRGBO(255, 45, 8, 0.8);
 const ButtonBackgroundColor = Color.fromRGBO(244, 48, 14, 1);
 const UnderlineButtonColor = Color.fromRGBO(244, 48, 14, 1);
 

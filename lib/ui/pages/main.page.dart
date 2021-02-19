@@ -17,7 +17,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: mainDrawer(context),
+        drawer: mainDrawer(context, 0),
         endDrawer: settingsDrawer(context),
         body: NestedScrollView(
 

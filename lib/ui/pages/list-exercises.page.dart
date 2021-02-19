@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:feeltheburn/ui/widget/exercise-box.widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:feeltheburn/ui/widget/main-drawer.widget.dart';
 
 class ListExercisesScreen extends StatefulWidget {
   ListExercisesScreen({Key key}) : super(key: key);
@@ -59,6 +60,7 @@ class _ListExercisesScreenState extends State<ListExercisesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: mainDrawer(context, 1),
       appBar: AppBar(
         title: Text(
           'Exercises',

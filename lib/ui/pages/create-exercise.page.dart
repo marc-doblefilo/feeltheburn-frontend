@@ -1,3 +1,4 @@
+import 'package:feeltheburn/ui/widget/main-drawer.widget.dart';
 import 'package:feeltheburn/ui/widget/multi-select-chip.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:feeltheburn/ui/widget/app-bar.widget.dart';
@@ -168,6 +169,7 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
     );
 
     return Scaffold(
+      drawer: mainDrawer(context, 2),
       appBar: customAppBar("Create an Exercise"),
       body: Center(
         child: Container(
