@@ -18,7 +18,7 @@ class _ListExercisesScreenState extends State<ListExercisesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: mainAppBar("Exercises"),
+      appBar: customAppBar("Exercises"),
       body: Center(
         child: Padding(
           padding: EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 0),

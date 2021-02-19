@@ -168,7 +168,7 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
     );
 
     return Scaffold(
-      appBar: mainAppBar("Create an Exercise"),
+      appBar: customAppBar("Create an Exercise"),
       body: Center(
         child: Container(
           color: BackgroundColor,

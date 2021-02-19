@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:feeltheburn/util/colors.dart';
 
-Widget mainAppBar(String title) {
+Widget customAppBar(String title) {
   return AppBar(
       title: Text(
         title,

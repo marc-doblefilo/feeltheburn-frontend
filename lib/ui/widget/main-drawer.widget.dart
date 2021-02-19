@@ -16,14 +16,7 @@ Widget mainDrawer(BuildContext context) {
           DrawerHeader(
             margin: EdgeInsets.zero,
             padding: EdgeInsets.zero,
-            child: Text(
-              "Welcome to Feel The Burn",
-              style: TextStyle(
-                color: TextColor,
-                fontWeight: FontWeight.w800,
-                fontSize: 20.0,
-              ),
-            ),
+            child: Image.asset('assets/FTB-logo-orng.png'),
             decoration: BoxDecoration(
               color: HeaderColor,
             ),

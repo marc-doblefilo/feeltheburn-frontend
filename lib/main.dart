@@ -41,11 +41,12 @@ class _HomeScreenState extends State<HomeScreen> {
           return<Widget>[
             SliverAppBar(
               expandedHeight: 300.0,
+              collapsedHeight: 101.0,
               pinned: true,
               floating: true,
-              title: Text(
-                "Feel The Burn",
-                style: TextStyle(color: Colors.white),
+              title: Image.asset('assets/B-logo-orng-nobg.png',
+                width: 300,
+                height: 150,
               ),
               centerTitle: true,
               backgroundColor: HeaderColor,
