@@ -1,16 +1,21 @@
-# feeltheburn
+<h1 align="center">
+    <br>
+    <img src="assets/FTB-logo-orng.png" alt="Feel the Burn logo">
+    <br>
+    :fire: Feel the Burn 🔥:fire:
+    <br>
+</h1>
 
-A new Flutter application.
+<img alt="Dart" src="https://img.shields.io/badge/dart-%230175C2.svg?&style=for-the-badge&logo=dart&logoColor=white"/><img alt="Flutter" src="https://img.shields.io/badge/Flutter%20-%2302569B.svg?&style=for-the-badge&logo=Flutter&logoColor=white" /><img alt="Firebase" src="https://img.shields.io/badge/firebase%20-%23039BE5.svg?&style=for-the-badge&logo=firebase"/>![uses git](https://img.shields.io/badge/uses-git-blue.svg?longCache=true&style=for-the-badge)
 
-## Getting Started
+## Table of Contents
+* [About the Project](#about-the-project)
 
-This project is a starting point for a Flutter application.
+<a name="about-the-project"></a>
+## About the Project 
 
-A few resources to get you started if this is your first Flutter project:
+_Feel the Burn is a project about an app to organize your workout without matter the type of sport(calisthenic, gym, yoga, etc.)_
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Author ✒️
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* **Marcos Rodríguez** - *Progamming and Documentation* - [Github](https://github.com/mark-doblefilo) - [Twitter](https://github.com/mark_doblefilo) - [Linkedin](https://www.linkedin.com/in/marcos-rodr%C3%ADguez-8b1441195/)
