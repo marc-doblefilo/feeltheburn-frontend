@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:feeltheburn/ui/widget/exercise-box.widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 class ListExercisesScreen extends StatefulWidget {
   ListExercisesScreen({Key key}) : super(key: key);
