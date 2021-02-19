@@ -33,7 +33,9 @@ Widget settingsDrawer(BuildContext context) {
             ),
             tileColor: BackgroundColor,
             selectedTileColor: SelectedButtonBackgroundColor,
-            onTap: () {},
+            onTap: () {
+              throw UnimplementedError();
+            },
           ),
         ],
       ),
