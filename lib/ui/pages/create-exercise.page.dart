@@ -12,7 +12,7 @@ class CreateExerciseScreen extends StatefulWidget {
 }
 
 class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
-  final List<String> muscularGroups = [
+  final List<String> muscleGroups = [
     "Full Body",
     "Triceps",
     "Chest",
@@ -30,7 +30,7 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
     "Lumbar",
     "Obliques"
   ];
-  List<String> selectedMuscularGroups = [];
+  List<String> selectedMuscleGroups = [];
 
   String selectedDifficulty = "Easy";
 
@@ -41,14 +41,14 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
           //Here we will build the content of the dialog
           return AlertDialog(
             backgroundColor: BackgroundColor,
-            title: Text("Select Muscular Groups",
+            title: Text("Select Muscle Groups",
             style: TextStyle(
               color: TextColor,
             ),),
-            content: MultiSelectChip(muscularGroups,
+            content: MultiSelectChip(muscleGroups,
                 onSelectionChanged: (selectedList) {
               setState(() {
-                selectedMuscularGroups = selectedList;
+                selectedMuscleGroups = selectedList;
               });
             }),
             actions: <Widget>[
@@ -122,7 +122,7 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
       children: <Widget>[
         RaisedButton(
           child: Text(
-            "Select Muscular Groups",
+            "Select Muscle Groups",
             style: TextStyle(
               fontSize: 16.0,
               color: TextColor,
@@ -132,7 +132,7 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
           onPressed: () => _showReportDialog(),
         ),
         Text(
-          "Selected: " + selectedMuscularGroups.join(", "),
+          "Selected: " + selectedMuscleGroups.join(", "),
           style: TextStyle(
             fontSize: 14.0,
             color: TextColor,
@@ -205,8 +205,7 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
                             ? _validateNameEmpty = true
                             : _validateNameEmpty = false;
                         if(_validateNameEmpty != true) {
-                          print("[Ex] Working");
-                          Map <String,dynamic> data = {"name":_nameController.text,"muscularGroups":selectedMuscularGroups,"difficulty":selectedDifficulty,"description":_descriptionController.text};
+                          Map <String,dynamic> data = {"name":_nameController.text,"muscularGroups":selectedMuscleGroups,"difficulty":selectedDifficulty,"description":_descriptionController.text};
                           FirebaseFirestore.instance.collection("exercises").add(data);
                           showDialog(
                             context: context,

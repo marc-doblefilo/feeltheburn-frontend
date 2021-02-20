@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:feeltheburn/ui/pages/create-exercise.page.dart';
 import 'package:feeltheburn/ui/pages/list-exercises.page.dart';
 import 'package:feeltheburn/ui/pages/main.page.dart';
+import 'package:feeltheburn/ui/pages/list-programs.page.dart';
 
 Widget mainDrawer(BuildContext context, int _selectedIndex) {
 
@@ -85,6 +86,28 @@ Widget mainDrawer(BuildContext context, int _selectedIndex) {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => CreateExerciseScreen()),
+              );
+
+            },
+          ),
+
+          _divisor,
+
+          ListTile(
+            title: Text(
+              "Programs",
+              style: TextStyle(
+                color: TextColor,
+                fontSize: 18.0,
+              ),
+            ),
+            tileColor: BackgroundColor,
+            selected: _selectedIndex == 3,
+            selectedTileColor: SelectedButtonBackgroundColor,
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => ListProgramsPage()),
               );
 
             },

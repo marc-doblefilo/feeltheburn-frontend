@@ -1,10 +1,10 @@
 class Exercise {
   String name;
-  List<dynamic> muscularGroup;
+  List<dynamic> muscleGroups;
   String difficulty;
   String description;
 
-  Exercise(this.name, this.muscularGroup, this.difficulty,
+  Exercise(this.name, this.muscleGroups, this.difficulty,
       this.description);
 
 
