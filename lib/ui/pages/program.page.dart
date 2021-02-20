@@ -1,7 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:feeltheburn/services/program.services.dart';
 import 'package:feeltheburn/ui/widget/app-bar.widget.dart';
+import 'package:feeltheburn/ui/widget/serie-box.widget.dart';
 import 'package:flutter/material.dart';
-import 'package:feeltheburn/models/program.dart';
+import 'package:feeltheburn/models/serie.dart';
+import 'package:feeltheburn/models/exercise.dart';
 import 'package:feeltheburn/util/colors.dart';
 import 'package:community_material_icon/community_material_icon.dart';
 
@@ -10,16 +13,21 @@ class ProgramScreen extends StatelessWidget {
 
   ProgramScreen({Key key, @required this.program}) : super(key: key);
 
-  DocumentSnapshot set;
   String serieUID;
+  Serie set;
+  List<Serie> ListofSets = [];
+  int ind;
 
-  Future<DocumentSnapshot> searchSet(String UID) async {
-    set = await FirebaseFirestore.instance.collection('serie').doc(UID)
-        .get();
+  Future<DocumentSnapshot> loadSerie(String UID, int index) async {
+    set = await loadSet(UID);
+
+    ListofSets.add(set);
   }
 
   @override
   Widget build(BuildContext context) {
+    ind = 0;
+
     return Scaffold(
       appBar: customAppBar(""),
       body: Padding(
@@ -36,7 +44,7 @@ class ProgramScreen extends StatelessWidget {
                 fontSize: 28.0,
               ),
             ),
-            SizedBox(height: 15.0),
+            SizedBox(height: 10.0),
             Container(
               padding: const EdgeInsets.all(6.0),
               margin: EdgeInsets.only(bottom: 10.0),
@@ -44,8 +52,8 @@ class ProgramScreen extends StatelessWidget {
                 color: (program['difficulty'] == "Easy")
                     ? EasyBoxColor
                     : (program['difficulty'] == "Medium")
-                    ? MediumBoxColor
-                    : HardBoxColor,
+                        ? MediumBoxColor
+                        : HardBoxColor,
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Text(
@@ -121,13 +129,27 @@ class ProgramScreen extends StatelessWidget {
             ),
             ListView.builder(
               shrinkWrap: true,
-              scrollDirection: Axis.vertical,
               itemCount: program['exercises'].length,
-              itemBuilder: (context, int index) {
+              itemBuilder: (BuildContext context, int index) {
                 serieUID = program['exercises'][index];
                 print(serieUID);
-
-                return null;
+                return FutureBuilder(
+                  future: loadSerie(serieUID, ind),
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    switch (snapshot.connectionState) {
+                      case ConnectionState.none:
+                        return Center(
+                          child: Text("Not Working"),
+                        );
+                      case ConnectionState.waiting:
+                        return Center(
+                          child: Text("Waiting"),
+                        );
+                      default:
+                        return setContainer(context, ListofSets[index]);
+                    }
+                  },
+                );
               },
             ),
           ],
