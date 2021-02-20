@@ -55,6 +55,28 @@ Widget mainDrawer(BuildContext context, int _selectedIndex) {
 
           ListTile(
             title: Text(
+              "Programs",
+              style: TextStyle(
+                color: TextColor,
+                fontSize: 18.0,
+              ),
+            ),
+            tileColor: BackgroundColor,
+            selected: _selectedIndex == 3,
+            selectedTileColor: SelectedButtonBackgroundColor,
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => ListProgramsPage()),
+              );
+
+            },
+          ),
+
+          _divisor,
+
+          ListTile(
+            title: Text(
               "Exercises",
               style: TextStyle(
                 color: TextColor,
@@ -86,28 +108,6 @@ Widget mainDrawer(BuildContext context, int _selectedIndex) {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => CreateExerciseScreen()),
-              );
-
-            },
-          ),
-
-          _divisor,
-
-          ListTile(
-            title: Text(
-              "Programs",
-              style: TextStyle(
-                color: TextColor,
-                fontSize: 18.0,
-              ),
-            ),
-            tileColor: BackgroundColor,
-            selected: _selectedIndex == 3,
-            selectedTileColor: SelectedButtonBackgroundColor,
-            onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => ListProgramsPage()),
               );
 
             },

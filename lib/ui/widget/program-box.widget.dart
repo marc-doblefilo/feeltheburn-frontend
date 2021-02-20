@@ -6,7 +6,7 @@ import 'package:feeltheburn/models/exercise.dart';
 
 Widget programContainer(BuildContext context, DocumentSnapshot document) {
   _imageSelection(String category) {
-    switch(category) {
+    switch (category) {
       case 'Hypertrophy':
         return AssetImage('assets/program/hypertrophy.jpg');
         break;
@@ -19,23 +19,20 @@ Widget programContainer(BuildContext context, DocumentSnapshot document) {
     onTap: () {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => ProgramScreen(program: document)),
+        MaterialPageRoute(
+            builder: (context) => ProgramScreen(program: document)),
       );
     },
     child: Container(
       width: double.infinity,
       margin: EdgeInsets.only(bottom: 10.0),
       decoration: BoxDecoration(
-        color: (document['difficulty'] == "Easy")
-            ? EasyBoxColor
-            : (document['difficulty'] == "Medium")
-                ? MediumBoxColor
-                : HardBoxColor,
         borderRadius: BorderRadius.circular(10.0),
         image: DecorationImage(
           image: _imageSelection(document['category']),
           fit: BoxFit.fitWidth,
-          colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.dstATop),
+          colorFilter: ColorFilter.mode(
+              Colors.black.withOpacity(0.5), BlendMode.dstATop),
         ),
       ),
       child: Padding(
@@ -79,8 +76,26 @@ Widget programContainer(BuildContext context, DocumentSnapshot document) {
                 ),
               ],
             ),
-            SizedBox(
-              height: 30.0,
+            SizedBox(height: 10.0),
+            Container(
+              padding: const EdgeInsets.all(6.0),
+              margin: EdgeInsets.only(bottom: 10.0),
+              decoration: BoxDecoration(
+                color: (document['difficulty'] == "Easy")
+                    ? EasyBoxColor
+                    : (document['difficulty'] == "Medium")
+                    ? MediumBoxColor
+                    : HardBoxColor,
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Text(
+                document['difficulty'].toUpperCase(),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 0.5,
+                  fontSize: 10.0,
+                ),
+              ),
             ),
           ],
         ),
