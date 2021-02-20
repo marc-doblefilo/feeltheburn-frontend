@@ -2,7 +2,7 @@
     <br>
     <img src="assets/FTB-logo-orng.png" alt="Feel the Burn logo">
     <br>
-    :fire: Feel the Burn 🔥:fire:
+    :fire: Feel the Burn 🔥
     <br>
 </h1>
 
