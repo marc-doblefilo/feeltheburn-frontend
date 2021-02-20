@@ -8,7 +8,7 @@ class Program {
   String category;
   int time;
 
-  Program(String name, List<Serie> exercises, String difficulty, int time, List<String> muscleGroups, String category, int time) {
+  Program(String name, List<Serie> exercises, String difficulty, List<String> muscleGroups, String category, int time) {
     this.name = name;
     this.exercises = exercises;
     this.difficulty = difficulty;

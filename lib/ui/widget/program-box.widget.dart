@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:feeltheburn/ui/pages/program.page.dart';
 import 'package:flutter/material.dart';
 import 'package:feeltheburn/util/colors.dart';
 import 'package:feeltheburn/models/exercise.dart';
@@ -16,8 +17,10 @@ Widget programContainer(BuildContext context, DocumentSnapshot document) {
 
   return InkWell(
     onTap: () {
-      print("Container tapped.");
-      return null;
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ProgramScreen(program: document)),
+      );
     },
     child: Container(
       width: double.infinity,
